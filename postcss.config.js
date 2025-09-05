@@ -1,4 +1,3 @@
-### postcss.config.js
 
 ```js
 module.exports = {
