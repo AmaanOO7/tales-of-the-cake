@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from 'react';
 
 const PRODUCTS = [
   { id: 1, name: 'Vanilla Story Cake', price: '₹1,200', desc: 'Light sponge, vanilla buttercream, edible flowers', img: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=60' },
