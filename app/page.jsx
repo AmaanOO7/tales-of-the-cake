@@ -127,7 +127,7 @@ function Products(){
                 </div>
                 <div className="text-right">
                   <div className="font-semibold">{p.price}</div>
-                  <a href={`https://wa.me/91YOURNUMBER?text=Hi%20I%20want%20to%20order%20${encodeURIComponent(p.name)}`} className="block mt-2 text-xs text-pink-500">Quick order</a>
+                  <a href={`https://wa.me/919931052652?text=Hi%20I%20want%20to%20order%20${encodeURIComponent(p.name)}`} className="block mt-2 text-xs text-pink-500">Quick order</a>
                 </div>
               </div>
             </div>
@@ -208,8 +208,8 @@ function CustomOrder(){
         <p className="text-gray-600 mb-4">Tell us your idea and we will bring it to life. Fill the form or message us on WhatsApp for a quick response.</p>
 
         <div className="space-y-3">
-          <a href={`https://wa.me/91YOURNUMBER?text=${encodeURIComponent('Hi! I want to place a custom order for a cake.')}`} className="inline-block px-4 py-2 bg-green-400 rounded-md text-white">Message on WhatsApp</a>
-          <a href={`mailto:yourbakery@example.com?subject=${encodeURIComponent('Custom Cake Inquiry')}&body=${encodeURIComponent('Hi, I would like to inquire about a custom cake for...')}`} className="inline-block ml-2 px-4 py-2 border rounded-md">Email us</a>
+          <a href={`https://wa.me/919931052652?text=${encodeURIComponent('Hi! I want to place a custom order for a cake.')}`} className="inline-block px-4 py-2 bg-green-400 rounded-md text-white">Message on WhatsApp</a>
+          <a href={`mailto:aks.franky@gmail.com?subject=${encodeURIComponent('Custom Cake Inquiry')}&body=${encodeURIComponent('Hi, I would like to inquire about a custom cake for...')}`} className="inline-block ml-2 px-4 py-2 border rounded-md">Email us</a>
         </div>
       </div>
       <form className="bg-white rounded-xl p-6 shadow">
@@ -236,7 +236,7 @@ function Footer(){
           <h5 className="font-semibold">Tales of the Cake</h5>
           <p className="text-sm text-gray-600">Made with ❤️. Pickup & delivery across town.</p>
         </div>
-        <div className="text-sm text-gray-600">Contact: <a href="tel:+91YOURNUMBER" className="text-pink-500">+91 YOURNUMBER</a> • <a href="#" className="ml-3 text-pink-500">Instagram</a></div>
+        <div className="text-sm text-gray-600">Contact: <a href="tel:+919931052652" className="text-pink-500">+91 YOURNUMBER</a> • <a href="#" className="ml-3 text-pink-500">Instagram</a></div>
       </div>
     </footer>
   )
