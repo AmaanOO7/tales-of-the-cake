@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from "react";
 
 const PRODUCTS = [
   { id: 1, name: 'Vanilla Story Cake', price: '₹1,200', desc: 'Light sponge, vanilla buttercream, edible flowers', img: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=60' },
@@ -37,10 +37,13 @@ export default function Home() {
   )
 }
 
-function Header(){
+function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <header className="backdrop-blur-sm sticky top-0 z-50 bg-white/60 border-b">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        {/* Logo + Title */}
         <div className="flex items-center gap-3">
           <div className="w-12 h-12 rounded-full bg-gradient-to-br from-pink-300 to-amber-300 flex items-center justify-center shadow-md">
             <span className="text-white font-dancing text-lg">T</span>
@@ -50,15 +53,80 @@ function Header(){
             <p className="text-xs text-gray-500">Every cake tells a story</p>
           </div>
         </div>
+
+        {/* Desktop Menu */}
         <nav className="hidden md:flex items-center gap-6 text-sm">
-          <a href="#products" className="hover:underline">Products</a>
-          <a href="#about" className="hover:underline">Our Story</a>
-          <a href="#gallery" className="hover:underline">Gallery</a>
-          <a href="#order" className="rounded-md px-4 py-2 bg-pink-300 text-white font-medium">Order Now</a>
+          <a href="#products" className="hover:underline">
+            Products
+          </a>
+          <a href="#about" className="hover:underline">
+            Our Story
+          </a>
+          <a href="#gallery" className="hover:underline">
+            Gallery
+          </a>
+          <a
+            href="#order"
+            className="rounded-md px-4 py-2 bg-pink-300 text-white font-medium"
+          >
+            Order Now
+          </a>
         </nav>
+
+        {/* Mobile Hamburger */}
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="md:hidden focus:outline-none"
+        >
+          {/* Icon */}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-7 w-7 text-gray-700"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            {menuOpen ? (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            ) : (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            )}
+          </svg>
+        </button>
       </div>
+
+      {/* Mobile Menu Items */}
+      {menuOpen && (
+        <div className="md:hidden bg-white border-t px-6 py-4 space-y-3">
+          <a href="#products" className="block text-gray-700">
+            Products
+          </a>
+          <a href="#about" className="block text-gray-700">
+            Our Story
+          </a>
+          <a href="#gallery" className="block text-gray-700">
+            Gallery
+          </a>
+          <a
+            href="#order"
+            className="block px-4 py-2 bg-pink-300 rounded-md text-white text-center"
+          >
+            Order Now
+          </a>
+        </div>
+      )}
     </header>
-  )
+  );
 }
 
 function Hero(){
