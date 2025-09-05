@@ -1,0 +1,16 @@
+### logo.svg (save to /public/logo.svg)
+
+```svg
+<svg width="200" height="60" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Tales of the Cake logo">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0%" stop-color="#FFB6C1"/>
+      <stop offset="100%" stop-color="#FFD54F"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="60" rx="12" fill="url(#g)" />
+  <g transform="translate(18,10)">
+    <text x="0" y="28" font-family="'Dancing Script', cursive" font-size="28" fill="#fff">Tales of the Cake</text>
+  </g>
+</svg>
+```
