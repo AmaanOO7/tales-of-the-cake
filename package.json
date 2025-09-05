@@ -1,6 +1,3 @@
-### package.json
-
-```json
 {
   "name": "tales-of-the-cake",
   "version": "1.0.0",
@@ -21,4 +18,3 @@
     "tailwindcss": "3.4.7"
   }
 }
-```
