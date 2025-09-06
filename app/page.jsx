@@ -1,6 +1,4 @@
-import Navbar from "./components/Navbar";
-
-import React from 'react';
+import React, { useState } from 'react'
 
 const PRODUCTS = [
   { id: 1, name: 'Vanilla Story Cake', price: '₹1,200', desc: 'Light sponge, vanilla buttercream, edible flowers', img: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=60' },
@@ -11,7 +9,7 @@ const PRODUCTS = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-pink-50 via-cream-50 to-white font-poppins text-gray-800">
+    <main className="min-h-screen bg-gradient-to-b from-pink-50 via-amber-50 to-white font-poppins text-gray-800">
       <Header />
       <Hero />
       <section className="max-w-7xl mx-auto px-6 py-14">
@@ -39,13 +37,12 @@ export default function Home() {
   )
 }
 
-function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
+function Header(){
+  const [menuOpen, setMenuOpen] = useState(false)
 
   return (
     <header className="backdrop-blur-sm sticky top-0 z-50 bg-white/60 border-b">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        {/* Logo + Title */}
         <div className="flex items-center gap-3">
           <div className="w-12 h-12 rounded-full bg-gradient-to-br from-pink-300 to-amber-300 flex items-center justify-center shadow-md">
             <span className="text-white font-dancing text-lg">T</span>
@@ -56,79 +53,33 @@ function Header() {
           </div>
         </div>
 
-        {/* Desktop Menu */}
+        {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-6 text-sm">
-          <a href="#products" className="hover:underline">
-            Products
-          </a>
-          <a href="#about" className="hover:underline">
-            Our Story
-          </a>
-          <a href="#gallery" className="hover:underline">
-            Gallery
-          </a>
-          <a
-            href="#order"
-            className="rounded-md px-4 py-2 bg-pink-300 text-white font-medium"
-          >
-            Order Now
-          </a>
+          <a href="#products" className="hover:underline">Products</a>
+          <a href="#about" className="hover:underline">Our Story</a>
+          <a href="#gallery" className="hover:underline">Gallery</a>
+          <a href="#order" className="rounded-md px-4 py-2 bg-pink-300 text-white font-medium">Order Now</a>
         </nav>
 
-        {/* Mobile Hamburger */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden focus:outline-none"
-        >
-          {/* Icon */}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-7 w-7 text-gray-700"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            {menuOpen ? (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            ) : (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            )}
+        {/* Mobile menu button */}
+        <button className="md:hidden" onClick={() => setMenuOpen(!menuOpen)}>
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
       </div>
 
-      {/* Mobile Menu Items */}
+      {/* Mobile nav dropdown */}
       {menuOpen && (
         <div className="md:hidden bg-white border-t px-6 py-4 space-y-3">
-          <a href="#products" className="block text-gray-700">
-            Products
-          </a>
-          <a href="#about" className="block text-gray-700">
-            Our Story
-          </a>
-          <a href="#gallery" className="block text-gray-700">
-            Gallery
-          </a>
-          <a
-            href="#order"
-            className="block px-4 py-2 bg-pink-300 rounded-md text-white text-center"
-          >
-            Order Now
-          </a>
+          <a href="#products" className="block">Products</a>
+          <a href="#about" className="block">Our Story</a>
+          <a href="#gallery" className="block">Gallery</a>
+          <a href="#order" className="block px-4 py-2 bg-pink-300 text-white rounded-md">Order Now</a>
         </div>
       )}
     </header>
-  );
+  )
 }
 
 function Hero(){
@@ -142,24 +93,10 @@ function Hero(){
             <a href="#products" className="px-5 py-3 bg-pink-300 rounded-md text-white font-medium shadow">Explore Products</a>
             <a href="#order" className="px-5 py-3 border rounded-md text-gray-700">Custom Orders</a>
           </div>
-          <div className="mt-8 flex items-center gap-4 text-sm text-gray-600">
-            <div className="flex items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-pink-400" viewBox="0 0 20 20" fill="currentColor"><path d="M2 5a2 2 0 012-2h3.5a.5.5 0 01.5.5V5H4a1 1 0 00-1 1v8a1 1 0 001 1h12a1 1 0 001-1V6a1 1 0 00-1-1h-4V3.5a.5.5 0 01.5-.5H16a2 2 0 012 2v11a2 2 0 01-2 2H4a2 2 0 01-2-2V5z"/></svg>
-              <span>Freshly baked daily</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-amber-400" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2a6 6 0 016 6v3a5 5 0 01-5 5H9a5 5 0 01-5-5V8a6 6 0 016-6z"/></svg>
-              <span>Custom designs</span>
-            </div>
-          </div>
         </div>
         <div className="relative">
           <div className="rounded-3xl overflow-hidden shadow-2xl transform hover:scale-105 transition">
-            <img src="https://images.unsplash.com/photo-1542826438-6b37ff7d5d3b?auto=format&fit=crop&w=1000&q=60" alt="cakes" className="w-full h-96 object-cover"/>
-          </div>
-          <div className="absolute -bottom-6 left-6 grid grid-cols-2 gap-4">
-            <img src="https://images.unsplash.com/photo-1603133872870-4f2c45e7a9c6?auto=format&fit=crop&w=400&q=60" className="w-44 h-28 rounded-lg object-cover shadow"/>
-            <img src="https://images.unsplash.com/photo-1551024709-8f23befc6c3e?auto=format&fit=crop&w=400&q=60" className="w-44 h-28 rounded-lg object-cover shadow"/>
+            <img src="https://images.unsplash.com/photo-1542826438-6b37ff7d5d3b?auto=format&fit=crop&w=1000&q=60" alt="Beautiful cake with decorations" className="w-full h-96 object-cover"/>
           </div>
         </div>
       </div>
@@ -221,7 +158,7 @@ function About(){
         </ul>
       </div>
       <div className="rounded-2xl overflow-hidden shadow">
-        <img src="https://images.unsplash.com/photo-1514512364185-2b63a7c1f1c2?auto=format&fit=crop&w=900&q=60" alt="bakery" className="w-full h-72 object-cover"/>
+        <img src="https://images.unsplash.com/photo-1514512364185-2b63a7c1f1c2?auto=format&fit=crop&w=900&q=60" alt="Bakery interior with cakes" className="w-full h-72 object-cover"/>
       </div>
     </div>
   )
@@ -241,7 +178,7 @@ function Gallery(){
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {photos.map((src,i) => (
           <div key={i} className="rounded-lg overflow-hidden shadow">
-            <img src={src} className="w-full h-40 object-cover"/>
+            <img src={src} alt={`Bakery gallery ${i+1}`} className="w-full h-40 object-cover"/>
           </div>
         ))}
       </div>
@@ -279,17 +216,19 @@ function CustomOrder(){
 
         <div className="space-y-3">
           <a href={`https://wa.me/919931052652?text=${encodeURIComponent('Hi! I want to place a custom order for a cake.')}`} className="inline-block px-4 py-2 bg-green-400 rounded-md text-white">Message on WhatsApp</a>
-          <a href={`mailto:aks.franky@gmail.com?subject=${encodeURIComponent('Custom Cake Inquiry')}&body=${encodeURIComponent('Hi, I would like to inquire about a custom cake for...')}`} className="inline-block ml-2 px-4 py-2 border rounded-md">Email us</a>
+          <a href={`mailto:talesofthecake@gmail.com?subject=${encodeURIComponent('Custom Cake Inquiry')}&body=${encodeURIComponent('Hi, I would like to inquire about a custom cake for...')}`} className="inline-block ml-2 px-4 py-2 border rounded-md">Email us</a>
         </div>
       </div>
-      <form className="bg-white rounded-xl p-6 shadow">
+
+      {/* Formspree form */}
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" className="bg-white rounded-xl p-6 shadow">
         <div className="grid grid-cols-1 gap-3">
-          <input className="border rounded-md p-3" placeholder="Your name" />
-          <input className="border rounded-md p-3" placeholder="Phone or WhatsApp" />
-          <input className="border rounded-md p-3" placeholder="Event date" />
-          <textarea className="border rounded-md p-3" placeholder="Tell us your idea (flavor, size, theme)" rows={4}></textarea>
+          <input name="name" className="border rounded-md p-3" placeholder="Your name" required />
+          <input name="phone" className="border rounded-md p-3" placeholder="Phone or WhatsApp" required />
+          <input name="date" type="date" className="border rounded-md p-3" placeholder="Event date" required />
+          <textarea name="message" className="border rounded-md p-3" placeholder="Tell us your idea (flavor, size, theme)" rows={4} required></textarea>
           <div className="flex items-center gap-3">
-            <button type="button" className="px-4 py-2 bg-pink-300 text-white rounded-md">Send Inquiry</button>
+            <button type="submit" className="px-4 py-2 bg-pink-300 text-white rounded-md">Send Inquiry</button>
             <small className="text-xs text-gray-500">We will reply within 24 hours</small>
           </div>
         </div>
@@ -306,7 +245,7 @@ function Footer(){
           <h5 className="font-semibold">Tales of the Cake</h5>
           <p className="text-sm text-gray-600">Made with ❤️. Pickup & delivery across town.</p>
         </div>
-        <div className="text-sm text-gray-600">Contact: <a href="tel:+919931052652" className="text-pink-500">+91 YOURNUMBER</a> • <a href="#" className="ml-3 text-pink-500">Instagram</a></div>
+        <div className="text-sm text-gray-600">Contact: <a href="tel:+919931052652" className="text-pink-500">+91 9931052652</a> • <a href="#" className="ml-3 text-pink-500">Instagram</a></div>
       </div>
     </footer>
   )
